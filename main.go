@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -46,6 +48,15 @@ func main() {
 	if err != nil {
 		fmt.Println("oh, panic!")
 	}
+
+	var b = make([]byte, 10)
+	len, error := MyReader{}.Read(b)
+	fmt.Println(len, error, b)
+
+	s := strings.NewReader("Lbh penpxrq gur pbqr!")
+	r := rot13Reader{s}
+	io.Copy(os.Stdout, &r)
+
 }
 
 type IPAddr [4]byte
