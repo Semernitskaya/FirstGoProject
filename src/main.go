@@ -56,7 +56,6 @@ func main() {
 	s := strings.NewReader("Lbh penpxrq gur pbqr!")
 	r := rot13Reader{s}
 	io.Copy(os.Stdout, &r)
-
 }
 
 type IPAddr [4]byte
@@ -81,17 +80,6 @@ func Fibonacci() func() int {
 		return result
 	}
 
-}
-
-func Pic(dx, dy int) [][]uint8 {
-	var u = make([][]uint8, dx)
-	for i := 0; i < dx; i++ {
-		u[i] = make([]uint8, dy)
-		for j := 0; j < dy; j++ {
-			u[i][j] = uint8(i * j)
-		}
-	}
-	return u
 }
 
 func WordCount(s string) map[string]int {
